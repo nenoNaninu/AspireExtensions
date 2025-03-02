@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <RootNamespace>Aspire.Hosting</RootNamespace>
+
+        <!-- NuGet -->
+        <PackageId>AspireExtensions.GrpcUI</PackageId>
+        <AssemblyName>AspireExtensions.GrpcUI</AssemblyName>
+        <Title>AspireExtensions.GrpcUI</Title>
+        <PackageTags>aspire;gRPC</PackageTags>
+        <Description>gRPC UI support for .NET Aspire.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting" />
+    </ItemGroup>
+
+</Project>

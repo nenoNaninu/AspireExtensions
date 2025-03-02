@@ -1,0 +1,19 @@
+<Project>
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>false</ImplicitUsings>
+        <InvariantGlobalization>true</InvariantGlobalization>
+
+        <!-- NuGet -->
+        <Authors>nenoNaninu</Authors>
+        <Copyright>(c) nenoNaninu</Copyright>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/nenoNaninu/AspireExtensions.GrpcUI</RepositoryUrl>
+        <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <PathMap>$(MSBuildThisFileDirectory)=./</PathMap>
+    </PropertyGroup>
+</Project>

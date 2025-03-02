@@ -1,0 +1,38 @@
+name: release-grpcui
+
+on:
+  push:
+    tags:
+      - "grpcui-v[0-9]+.[0-9]+.[0-9]+*"
+
+env:
+  DOTNET_VERSION: "9.0.x"
+  DOTNET_NOLOGO: true
+
+jobs:
+  release:
+    name: release-grpcui
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Get version from git tag
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/grpcui-v}" >> $GITHUB_ENV
+
+      - name: dotnet build
+        run: dotnet build -c Release -p:Version=${{ env.RELEASE_VERSION }} ./src/AspireExtensions.GrpcUI/AspireExtensions.GrpcUI.csproj
+
+      - name: dotnet pack
+        run: dotnet pack -c Release --no-build --output ${{ github.workspace }}/artifacts -p:Version=${{ env.RELEASE_VERSION }} ./src/AspireExtensions.GrpcUI/AspireExtensions.GrpcUI.csproj
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Packages
+          path: ${{ github.workspace }}/artifacts
+
+      - name: dotnet nuget push
+        run: dotnet nuget push ${{ github.workspace }}/artifacts/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
