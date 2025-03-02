@@ -97,3 +97,11 @@ builder.AddProject<Projects.MyGrpcService>("grpcservice")
 builder.Build().Run();
 ```
 
+Launch Aspire! You will see that grpcui is running.
+
+![](./imgs/aspiredashboard.png)
+
+By clicking endpoint on the Aspire dashboard, you can easily access the gRPC UI!
+
+![](/imgs/grpcui.png)
+
