@@ -1,5 +1,7 @@
 # AspireExtensions.GrpcUI
 
+[![NuGet](https://img.shields.io/nuget/v/AspireExtensions.GrpcUI.svg)](https://www.nuget.org/packages/AspireExtensions.GrpcUI)
+
 gRPC UI support for .NET Aspire.
 
 ## Table of Contents
