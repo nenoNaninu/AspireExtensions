@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/examples/">
+    <Project Path="examples/Examples.AppHost/Examples.AppHost.csproj" />
+    <Project Path="examples/Examples.GrpcService/Examples.GrpcService.csproj" />
+    <Project Path="examples/Examples.ServiceDefaults/Examples.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/AspireExtensions.GrpcUI/AspireExtensions.GrpcUI.csproj" />
+  </Folder>
+</Solution>
