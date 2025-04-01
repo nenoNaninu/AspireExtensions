@@ -41,7 +41,8 @@ public static class Extensions
                 context.Args.Add("-port");
                 context.Args.Add(port.ToString());
                 context.Args.Add($"{endpoint.Host}:{endpoint.Port}");
-            });
+            })
+            .WithExplicitStart();
 
         return builder;
     }
