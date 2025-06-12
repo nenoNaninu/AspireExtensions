@@ -27,6 +27,7 @@ public static class Extensions
 
         builder.ApplicationBuilder.AddExecutable($"{builder.Resource.Name}-grpcui", "grpcui", ".", [])
             .WaitFor(builder)
+            .WithParentRelationship(builder)
             .WithHttpEndpoint(port: port, isProxied: false)
             .WithArgs(context =>
             {
