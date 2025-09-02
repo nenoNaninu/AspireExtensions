@@ -1,16 +1,25 @@
 # AspireExtensions.GrpcUI
 
-[![NuGet](https://img.shields.io/nuget/v/AspireExtensions.GrpcUI.svg)](https://www.nuget.org/packages/AspireExtensions.GrpcUI)
-
-gRPC UI support for .NET Aspire.
+- gRPC UI support for .NET Aspire.
+  - AspireExtensions.GrpcUI
+- gRPC UI support for .NET Aspire.
+  - AspireExtensions.Hosting.Minio
 
 ## Table of Contents
 
-- [Install](#install)
-- [API](#api)
-- [Usage](#usage)
+- [AspireExtensions.GrpcUI](#aspireextensionsgrpcui-1)
+  - [Install](#install)
+  - [API](#api)
+  - [Usage](#usage)
+- [AspireExtensions.Hosting.Minio](#aspireextensionshostingminio)
+  - [Install](#install-1)
+  - [API](#api-1)
+- [AspireExtensions.Minio.Client](#aspireextensionsminioclient)
+  - [Install](#install-2)
+  - [API](#api-2)
 
-## Install
+## AspireExtensions.GrpcUI
+### Install
 
 Install [grpcui](https://github.com/fullstorydev/grpcui) on your local machine.
 
@@ -32,7 +41,7 @@ And add package to your Aspire AppHost project.
 $ dotnet add package AspireExtensions.GrpcUI
 ```
 
-## API
+### API
 
 `AspireExtensions.GrpcUI` provide `WithGrpcUI()` method.
 Use `WithGrpcUI()` in your Aspire AppHost project.
@@ -48,7 +57,7 @@ builder.AddProject<Projects.MyGrpcService>("grpcservice")
 builder.Build().Run();
 ```
 
-## Usage
+### Usage
 
 gRPC Reflection must be enabled to use the gRPC UI.
 
@@ -107,3 +116,52 @@ By clicking endpoint on the Aspire dashboard, you can easily access the gRPC UI!
 
 ![](/imgs/grpcui.png)
 
+## AspireExtensions.Hosting.Minio
+
+### Install
+
+```
+$ dotnet add package AspireExtensions.Hosting.Minio
+```
+
+### API
+
+`AspireExtensions.Hosting.Minio` provide `AddMinio()` and `AddBucket` method.
+
+```cs
+var builder = DistributedApplication.CreateBuilder(args);
+
+var minio = builder.AddMinio(
+        name: "minio",
+        userName: builder.AddParameter("MinioUser"),
+        password: builder.AddParameter("MinioPassword")
+    )
+    .WithImageTag("RELEASE.2025-07-23T15-54-02Z")
+    .WithDataVolume("my.minio.volume");
+
+var bucketCreation = minio.AddBucket(["MyBucket1", "MyBucket2"])
+    .WithImageTag("RELEASE.2025-07-21T05-28-08Z");
+
+var webapi = builder.AddProject<Projects.MyWebApi>("webapi")
+    .WithReference(minio)
+    .WaitFor(minio)
+    .WaitForCompletion(bucketCreation);
+```
+
+## AspireExtensions.Minio.Client
+
+### Install
+
+```
+$ dotnet add package AspireExtensions.Minio.Client
+```
+
+### API
+
+`AspireExtensions.Minio.Client` provide `AddMinioClient()`.
+
+```cs
+var builder = WebApplication.CreateBuilder(args);
+
+builder.AddMinioClient("minio");
+```
