@@ -1,4 +1,4 @@
-# AspireExtensions.GrpcUI
+# AspireExtensions
 
 - gRPC UI support for .NET Aspire.
   - AspireExtensions.GrpcUI
@@ -7,7 +7,7 @@
 
 ## Table of Contents
 
-- [AspireExtensions.GrpcUI](#aspireextensionsgrpcui-1)
+- [AspireExtensions.GrpcUI](#aspireextensionsgrpcui)
   - [Install](#install)
   - [API](#api)
   - [Usage](#usage)
@@ -19,6 +19,7 @@
   - [API](#api-2)
 
 ## AspireExtensions.GrpcUI
+
 ### Install
 
 Install [grpcui](https://github.com/fullstorydev/grpcui) on your local machine.
