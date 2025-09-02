@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "google/protobuf/empty.proto";
 
 option csharp_namespace = "Examples.GrpcService";
 
@@ -8,6 +9,7 @@ package greet;
 service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc SaveBlob (SaveBlobRequest) returns (google.protobuf.Empty);
 }
 
 // The request message containing the user's name.
@@ -18,4 +20,9 @@ message HelloRequest {
 // The response message containing the greetings.
 message HelloReply {
   string message = 1;
+}
+
+message SaveBlobRequest {
+  string name = 1;
+  string value = 2;
 }
