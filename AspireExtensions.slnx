@@ -11,5 +11,6 @@
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/AspireExtensions.GrpcUI/AspireExtensions.GrpcUI.csproj" />
+    <Project Path="src/AspireExtensions.Hosting.Minio/AspireExtensions.Hosting.Minio.csproj" />
   </Folder>
 </Solution>
