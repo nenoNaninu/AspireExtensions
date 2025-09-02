@@ -1,9 +1,10 @@
 # AspireExtensions
 
 - gRPC UI support for .NET Aspire.
-  - AspireExtensions.GrpcUI
+  - [AspireExtensions.GrpcUI](https://www.nuget.org/packages/AspireExtensions.GrpcUI/)
 - gRPC UI support for .NET Aspire.
-  - AspireExtensions.Hosting.Minio
+  - [AspireExtensions.Hosting.Minio](https://www.nuget.org/packages/AspireExtensions.Hosting.Minio/)
+  - [AspireExtensions.Minio.Client](https://www.nuget.org/packages/AspireExtensions.Minio.Client/)
 
 ## Table of Contents
 
