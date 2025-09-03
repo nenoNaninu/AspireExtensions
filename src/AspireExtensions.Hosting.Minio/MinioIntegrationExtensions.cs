@@ -99,7 +99,7 @@ public static class MinioIntegrationExtensions
 
         static string GetMinioPrimaryUri(MinioResource minio)
         {
-            EndpointReference endpoint = minio.GetEndpoint(MinioResource.PrimaryEndpointName);
+            var endpoint = minio.GetEndpoint(MinioResource.PrimaryEndpointName);
             return $"{endpoint.Scheme}://{minio.Name}:{endpoint.TargetPort}";
         }
     }
