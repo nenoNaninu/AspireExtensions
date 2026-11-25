@@ -53,7 +53,7 @@ using Aspire.Hosting;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-builder.AddProject<Projects.MyGrpcService>("grpcservice")
+builder.AddDotnetProject("grpcservice", "../MyGrpcService/MyGrpcService.csproj")
     .WithGrpcUI(port: 54321); // <- Add this!
 
 builder.Build().Run();
@@ -104,7 +104,7 @@ using Aspire.Hosting;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-builder.AddProject<Projects.MyGrpcService>("grpcservice")
+builder.AddDotnetProject("grpcservice", "../MyGrpcService/MyGrpcService.csproj")
     .WithGrpcUI(port: 54321); // <- Add this!
 
 builder.Build().Run();
@@ -144,7 +144,7 @@ var minio = builder.AddMinio(
 var bucketCreation = minio.AddBucket(["my-bucket-1", "my-bucket-2"])
     .WithImageTag("RELEASE.2025-07-21T05-28-08Z");
 
-var webapi = builder.AddProject<Projects.MyWebApi>("webapi")
+var webapi = builder.AddDotnetProject("webapi", "../MyWebApi/MyWebApi.csproj")
     .WithReference(minio)
     .WaitFor(minio)
     .WaitForCompletion(bucketCreation);

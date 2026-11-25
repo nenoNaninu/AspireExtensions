@@ -15,7 +15,7 @@ var minio = builder.AddMinio(
 var bucketCreation = minio.AddBucket(["my-bucket-1", "my-bucket-2"])
     .WithImageTag("RELEASE.2025-07-21T05-28-08Z");
 
-builder.AddProject<Projects.Examples_GrpcService>("grpcService")
+builder.AddDotnetProject("grpcService", "../Examples.GrpcService/Examples.GrpcService.csproj")
     .AsHttp2Service()
     .WithReference(minio)
     .WaitFor(minio)

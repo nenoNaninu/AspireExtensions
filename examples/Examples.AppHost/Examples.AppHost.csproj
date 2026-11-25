@@ -1,4 +1,4 @@
-<Project Sdk="Aspire.AppHost.Sdk/13.4.6">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -7,9 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\AspireExtensions.GrpcUI\AspireExtensions.GrpcUI.csproj" IsAspireProjectResource="false" />
-        <ProjectReference Include="..\..\src\AspireExtensions.Hosting.Minio\AspireExtensions.Hosting.Minio.csproj" IsAspireProjectResource="false" />
-        <ProjectReference Include="..\Examples.GrpcService\Examples.GrpcService.csproj" />
+        <PackageReference Include="Aspire.Hosting.AppHost" />
+        <PackageReference Include="Aspire.Hosting.Dotnet" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\AspireExtensions.GrpcUI\AspireExtensions.GrpcUI.csproj" />
+        <ProjectReference Include="..\..\src\AspireExtensions.Hosting.Minio\AspireExtensions.Hosting.Minio.csproj" />
     </ItemGroup>
 
 </Project>

@@ -7,7 +7,8 @@ namespace Aspire.Hosting;
 
 public static class Extensions
 {
-    public static IResourceBuilder<ProjectResource> WithGrpcUI(this IResourceBuilder<ProjectResource> builder, int port)
+    public static IResourceBuilder<T> WithGrpcUI<T>(this IResourceBuilder<T> builder, int port)
+        where T : class, IResourceWithEndpoints, IResourceWithWaitSupport
     {
         if (!builder.ApplicationBuilder.ExecutionContext.IsRunMode)
         {
@@ -60,17 +61,6 @@ public static class Extensions
             return false;
         }
 
-#if NET8_0
-        foreach (var path in pathString.Split(separator))
-        {
-            var exePath = Path.Join(path, exe);
-            if (File.Exists(exePath))
-            {
-                return true;
-            }
-        }
-#endif
-#if NET9_0_OR_GREATER
         var paths = pathString.AsSpan();
         var exeSpan = exe.AsSpan();
 
@@ -82,7 +72,6 @@ public static class Extensions
                 return true;
             }
         }
-#endif
 
         return false;
     }
