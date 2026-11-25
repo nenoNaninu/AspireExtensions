@@ -7,7 +7,8 @@ namespace Aspire.Hosting;
 
 public static class Extensions
 {
-    public static IResourceBuilder<ProjectResource> WithGrpcUI(this IResourceBuilder<ProjectResource> builder, int port)
+    public static IResourceBuilder<T> WithGrpcUI<T>(this IResourceBuilder<T> builder, int port)
+        where T : class, IResourceWithEndpoints, IResourceWithWaitSupport
     {
         if (!builder.ApplicationBuilder.ExecutionContext.IsRunMode)
         {
