@@ -13,7 +13,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\AspireExtensions.GrpcUI\AspireExtensions.GrpcUI.csproj" />
-        <ProjectReference Include="..\..\src\AspireExtensions.Hosting.Minio\AspireExtensions.Hosting.Minio.csproj" />
     </ItemGroup>
 
 </Project>

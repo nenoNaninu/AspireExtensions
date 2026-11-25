@@ -2,7 +2,7 @@
 
 - gRPC UI support for .NET Aspire.
   - [AspireExtensions.GrpcUI](https://www.nuget.org/packages/AspireExtensions.GrpcUI/)
-- Minio support for .NET Aspire.
+- Minio support for .NET Aspire. **(Obsolete)**
   - [AspireExtensions.Hosting.Minio](https://www.nuget.org/packages/AspireExtensions.Hosting.Minio/)
   - [AspireExtensions.Minio.Client](https://www.nuget.org/packages/AspireExtensions.Minio.Client/)
 
@@ -120,6 +120,10 @@ By clicking endpoint on the Aspire dashboard, you can easily access the gRPC UI!
 
 ## AspireExtensions.Hosting.Minio
 
+> [!WARNING]
+> `AspireExtensions.Hosting.Minio` is obsolete and no longer maintained, because MinIO itself is no longer maintained ([minio/minio](https://github.com/minio/minio), [MinIO blog](https://www.min.io/blog/minio-aistor-vs-minio-oss-technical-comparison)).
+> Please consider migrating to [RustFS](https://github.com/rustfs/rustfs), an S3-compatible object storage, with [CommunityToolkit.Aspire.Hosting.RustFs](https://www.nuget.org/packages/CommunityToolkit.Aspire.Hosting.RustFs/).
+
 ### Install
 
 ```
@@ -151,6 +155,10 @@ var webapi = builder.AddDotnetProject("webapi", "../MyWebApi/MyWebApi.csproj")
 ```
 
 ## AspireExtensions.Minio.Client
+
+> [!WARNING]
+> `AspireExtensions.Minio.Client` is obsolete and no longer maintained, because MinIO itself is no longer maintained ([minio/minio](https://github.com/minio/minio), [MinIO blog](https://www.min.io/blog/minio-aistor-vs-minio-oss-technical-comparison)).
+> Please consider migrating to [RustFS](https://github.com/rustfs/rustfs), an S3-compatible object storage, and use an S3-compatible client such as [AWSSDK.S3](https://www.nuget.org/packages/AWSSDK.S3/).
 
 ### Install
 
