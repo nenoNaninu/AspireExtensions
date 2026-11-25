@@ -1,5 +1,4 @@
-﻿using AspireExtensions.Minio.Client;
-using Examples.GrpcService.Services;
+﻿using Examples.GrpcService.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,8 +21,6 @@ builder.Services.AddHttpLogging(options =>
 {
     options.LoggingFields = HttpLoggingFields.RequestProperties | HttpLoggingFields.ResponseStatusCode | HttpLoggingFields.Duration;
 });
-
-builder.AddMinioClient("minio");
 
 var app = builder.Build();
 
