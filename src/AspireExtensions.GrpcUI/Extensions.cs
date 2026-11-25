@@ -61,17 +61,6 @@ public static class Extensions
             return false;
         }
 
-#if NET8_0
-        foreach (var path in pathString.Split(separator))
-        {
-            var exePath = Path.Join(path, exe);
-            if (File.Exists(exePath))
-            {
-                return true;
-            }
-        }
-#endif
-#if NET9_0_OR_GREATER
         var paths = pathString.AsSpan();
         var exeSpan = exe.AsSpan();
 
@@ -83,7 +72,6 @@ public static class Extensions
                 return true;
             }
         }
-#endif
 
         return false;
     }
